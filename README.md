@@ -8,6 +8,8 @@ This one is specifically used for ACM UCSD Projects review which is the reason f
 
 A `responses.csv` form is needed in the top level directory but is not provided since that is information I should not be sharing.
 
+Run by navigating to the top level directory and running `python app.py` then opening the locally hosted webapp.
+
 The web app will look like this:
 
 ![image](https://github.com/user-attachments/assets/7ab8f9ad-981b-4262-a332-bbb8717d907e)
