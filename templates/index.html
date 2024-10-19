@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtered Responses</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .response-container {
+            margin-bottom: 20px;
+        }
+        .response {
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 5px;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Filtered Response {{ index }} of {{ total }}</h1>
+    
+    <div class="response-container">
+        {% for question, answer in responses.items() %}
+        <div class="response">
+            <strong>{{ question }}</strong>
+            <div>{{ answer }}</div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Add a text box and save button for Comments (Alan) -->
+    <form action="/save_comment" method="post">
+        <div>
+            <label for="comment">Comments (Alan):</label><br>
+            <textarea id="comment" name="comment" rows="4" cols="50">{{ responses['Comments (Alan):'] }}</textarea>
+        </div>
+        <input type="hidden" name="index" value="{{ index - 1 }}">  <!-- Hidden input to track current row index -->
+        <button type="submit">Save</button>
+    </form>
+
+    <!-- Navigation Buttons -->
+    <form action="/back" method="get" style="display: inline;">
+        <button type="submit">Back</button>
+    </form>
+    
+    <form action="/next" method="get" style="display: inline;">
+        <button type="submit">Next</button>
+    </form>
+</body>
+</html>
